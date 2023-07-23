@@ -1,18 +1,24 @@
 import { BrowserRouter, Routes,Route, } from "react-router-dom";
 // import Add from "./pages/add";
-import Home from "./pages/home";
+// import Home from "./pages/home";
+// import Show from "./pages/show";
+// import MovieList from "./pages/MovieList";
+// import Movie from "./pages/Movie";
 // import Search from "./pages/search";
 
-// import "./style";          NOTE:: add style pages
+import "./styles/style.css";         // NOTE:: add style pages
+import Add from "./pages/add";
 
 function App(){
   return(
     <div className="App">
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/" element={<home/>} /> */}
-          <Route path="/home" element={<Home/>} />
-          {/* <Route path="/add" element={<Add/>} /> */}
+          {/* <Route exact path="/home" element={<Home />} />
+          <Route exact path="/movie/:id" element={<Show/>} /> */}
+          {/* <Route exact path="/movies" element={<MovieList />} />
+          <Route exact path="/movie/:id" element={<Movie/>} /> */}
+          <Route path="/add" element={<Add />} />
           {/* <Route path="/search" element={<Movies/>} /> */}
         </Routes>
       </BrowserRouter>
@@ -22,21 +28,3 @@ function App(){
 
 
 export default App;
-
-
-// this is eg or reference if something doesn't work
-// function App() {
-//   const [message,setMessage] = useState("");
-
-//   useEffect(() =>{
-//     fetch("http://localhost:8000/message")
-//     .then((res) => res.json())
-//     .then((data) => setMessage(data.message));
-//   }, []);
-
-//   return(
-//     <div className="App">
-//       <h1>{ message }</h1>
-//     </div>
-//   );
-// }

@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const db = require("./modules/database");
 
-
 const app = express();
 
 app.use(cors());
@@ -32,6 +31,33 @@ app.get('/home', (request, response)=>{
         }
     })
 });
+
+app.get("/movie/:id", (request, response) => {
+    const movieID = request.params.id;
+    const qry = "SELECT * FROM movies WHERE ID = ?";
+
+    db.query(qry, [movieID], (err,data) => {
+        if(err){
+            return response.json(err)
+        }
+        else{
+            return response.json(data);
+        }
+    });
+});
+
+app.get("/movies", (request, response) => {
+    const qry = "SELECT * FROM movies ";
+
+    db.query(qry, (err,data) => {
+        if(err){
+            return response.json(err);
+        }
+        else{
+            return response.json(data);
+        }
+    })
+})
 
 // this page will be to add new movies from the server
 
